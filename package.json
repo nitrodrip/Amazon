@@ -1,14 +1,19 @@
 {
-  "name": "bamazon",
+  "name": "amazon",
   "version": "1.0.0",
-  "description": "",
-  "main": "bamazonCustomer.js",
-  "dependencies": {
-    "inquirer": "^1.2.2",
-    "mysql": "^2.11.1"
-  },
-  "devDependencies": {},
+  "description": "Amazon Homework",
+  "main": "BamazonCustomer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "customer": "node BamazonCustomer.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitrodrip/Amazon.git"
+  },
+  "author": "Shane Henry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitrodrip/Amazon/issues"
+  },
+  "homepage": "https://github.com/nitrodrip/Amazon#readme"
+}
