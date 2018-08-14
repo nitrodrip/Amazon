@@ -4,7 +4,7 @@ Steps:
 Clone repo.
 Run command in Gitbash: 
     'npm install'
-    'npm run BamazonCustomer.js'
+    'node BamazonCustomer.js'
     * 'ctrl+c' exits
 
 BamazonCustomer.js:
