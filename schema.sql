@@ -15,14 +15,13 @@ select * from Products;
 
 INSERT INTO Products(Product_Name,Department_Name,Price,Stock_Quantity)
 VALUES 
-    ("Metroid","ENTERTAINMENT",49.95,150),
-    ("Super Mario Bros","ENTERTAINMENT",59.99,200),
-    ("Kale Salad","GROCERY",24.50,50),
-    ("Beavis and Butthead T-Shirt","CLOTHING",75.00,5),
-    ("Jenco Jeans","CLOTHING",54.25,35),
+    ("Burrito Movie","ENTERTAINMENT",49.95,150),
+    ("Super Mario Bros 17","ENTERTAINMENT",59.99,200),
+    ("Peanut Butter Salad","GROCERY",24.50,50),
+    ("Beavis and Butthead thong","CLOTHING",75.00,5),
+    ("Extra Thick Toering","CLOTHING",54.25,35),
     ("Survival Toothpick","SPORTS & OUTDOORS",42.42,42),
-    ("Bill and Ted's Excellent Adventure","ENTERTAINMENT",15.00,25),
-    ("When will my heart stop","ENTERTAINMENT",25.50,57),
-    ("Who hates Monopoly?","ENTERTAINMENT",30.50,35),
-    ("Russian Roulette","ENTERTAINMENT",19.95,23);
-
+    ("Ted and Bill's Okay Adventure","ENTERTAINMENT",15.00,25),
+    ("When will my heart stop?","ENTERTAINMENT",25.50,57),
+    ("Monopoly Headhunters Edition","ENTERTAINMENT",30.50,35),
+    ("Russian Roulette","ENTERTAINMENT",19.95,23)
