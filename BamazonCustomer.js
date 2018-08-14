@@ -6,20 +6,26 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "",
+  password: "96S53Sx1Z8jM",
   database: "Bamazon"
 })
 
-function start(){
+connection.connect(function (err) {
+  if (err) throw err;
+  displayData();
+});
+
+function startPage(){
 //prints the items for sale and their details
 connection.query('SELECT * FROM Products', function(err, res){
   if(err) throw err;
 
-  console.log('_.~"~._.~"~._.~Welcome to BAMazon~._.~"~._.~"~._')
+  console.log('Welcome to BAMazon')
   console.log('----------------------------------------------------------------------------------------------------')
 
   for(var i = 0; i<res.length;i++){
-    console.log("ID: " + res[i].ItemID + " | " + "Product: " + res[i].ProductName + " | " + "Department: " + res[i].DepartmentName + " | " + "Price: " + res[i].Price + " | " + "QTY: " + res[i].StockQuantity);
+    console.log("Item ID: " + res[i].item_ID + " | " + "Product Name: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "Quantity in stock: " + res[i].stock_quantity);
+    
     console.log('--------------------------------------------------------------------------------------------------')
   }
 
@@ -27,7 +33,7 @@ connection.query('SELECT * FROM Products', function(err, res){
   inquirer.prompt([
     {
       type: "input",
-      name: "id",
+      name: "userItemID",
       message: "What is the ID of the product you would like to purchase?",
       validate: function(value){
         if(isNaN(value) == false && parseInt(value) <= res.length && parseInt(value) > 0){
@@ -39,8 +45,8 @@ connection.query('SELECT * FROM Products', function(err, res){
     },
     {
       type: "input",
-      name: "qty",
-      message: "How much would you like to purchase?",
+      name: "userQuantity",
+      message: "How many would you like to purchase?",
       validate: function(value){
         if(isNaN(value)){
           return false;
@@ -54,7 +60,7 @@ connection.query('SELECT * FROM Products', function(err, res){
       var howMuchToBuy = parseInt(ans.qty);
       var grandTotal = parseFloat(((res[whatToBuy].Price)*howMuchToBuy).toFixed(2));
 
-      //check if quantity is sufficient
+      //check if there's enough quantity
       if(res[whatToBuy].StockQuantity >= howMuchToBuy){
         //after purchase, updates quantity in Products
         connection.query("UPDATE Products SET ? WHERE ?", [
@@ -101,11 +107,11 @@ function reprompt(){
     message: "Would you like to purchase another item?"
   }]).then(function(ans){
     if(ans.reply){
-      start();
+      startPage();
     } else{
       console.log("See you soon!");
     }
   });
 }
 
-start();
+startPage();
