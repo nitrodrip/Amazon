@@ -62,6 +62,7 @@ connection.query('SELECT * FROM Products', function(err, res){
 
       //check if there's enough quantity
       if(res[whatToBuy].StockQuantity >= howMuchToBuy){
+        
         //after purchase, updates quantity in Products
         connection.query("UPDATE Products SET ? WHERE ?", [
         {StockQuantity: (res[whatToBuy].StockQuantity - howMuchToBuy)},
